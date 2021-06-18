@@ -1,3 +1,80 @@
-.container {
-  border: thin;
+.weather-app {
+  max-width: 740px;
+  margin: 30px auto;
+  padding: 20px;
+  border: 1px solid gainsboro;
+  border-radius: 7px;
+  background-color: #f2f2f2;
+  box-shadow: 1px 1px 8px 8px #eaeaea;
+}
+
+.search-input {
+  width: 420px;
+  height: 40px;
+  font-size: 20px;
+}
+
+.search-button {
+  width: 100px;
+  height: 40px;
+  font-size: 20px;
+  font-weight: bolder;
+  color: #666767;
+  margin-right: 8px;
+}
+.current-button {
+  width: 100px;
+  height: 40px;
+  font-size: 20px;
+  background-color: #666767;
+  color: #efefef;
+  border: 0px solid #efefef;
+  border-radius: 3px;
+}
+
+.current-button:hover {
+  opacity: 1;
+}
+.overview {
+  margin-top: 10px;
+}
+
+.location {
+  font-size: 55px;
+  color: #3d3e3e;
+  margin-bottom: -12px;
+}
+.date-time {
+  color: #666767;
+  margin-bottom: 10px;
+}
+.current-temp {
+  font-size: 65px;
+  vertical-align: middle;
+}
+.fahrenheit-button,
+.celsius-button {
+  font-size: 12px;
+  border-radius: 10px;
+  color: #666767;
+  padding: 1px 5px;
+  vertical-align: bottom;
+  margin-bottom: 20px;
+}
+.fahrenheit-button:active,
+.celsius-button:active {
+  font-weight: bold;
+  background-color: royalblue;
+  color: #eaeaea;
+}
+
+.main-icon {
+  height: 90px;
+  vertical-align: top;
+}
+
+.column-1,
+.column-2 {
+  list-style: none;
+  padding: 0;
 }

@@ -19,21 +19,19 @@
         <div class="weather-app">
           <form class="search-form" id="search-bar">
             <div class="row">
-              <div class="col-2">
+              <div class="col-7">
                 <input
                   type="search"
                   placeholder="Type a city..."
                   autofocus="on"
                   autocomplete="off"
-                  class="form-control"
+                  class="search-input"
                   id="search-input"
                 />
               </div>
-              <div class="col-1">
-                <input type="submit" value="Search" class="btn btn-primary" />
-              </div>
-              <div class="col-1">
-                <button class="current-button btn btn-info" id="current-button">
+              <div class="col-4">
+                <input type="submit" value="Search" class="search-button" />
+                <button class="current-button" id="current-button">
                   Current
                 </button>
               </div>
@@ -44,15 +42,20 @@
             <h3 class="date-time" id="date-time">Time/Date</h3>
           </div>
           <div class="row">
-            <div class="clearfix weather-temperature">
-              <img src="" alt="Clear" id="icon" class="float-left" />
-              <div class="float-left">
-                <strong class="current-temp" id="current-temp">55</strong>
-                <span class="temp-units" id="units">
-                  <button id="fahrenheit-button">°F</button> |
-                  <button id="celsius-button">°C</button>
-                </span>
-              </div>
+            <div class="icon-temp-units">
+              <img
+                src="https://ssl.gstatic.com/onebox/weather/64/partly_cloudy.png"
+                alt="ICON"
+                id="icon"
+                class="main-icon"
+              />
+              <strong class="current-temp" id="current-temp">55</strong>
+              <span class="temp-units" id="units">
+                <button id="fahrenheit-button" class="fahrenheit-button">
+                  °F
+                </button>
+                <button id="celsius-button" class="celsius-button">°C</button>
+              </span>
             </div>
           </div>
           <div class="row">
@@ -66,7 +69,7 @@
                 </li>
               </ul>
             </div>
-            <div class="col-5">
+            <div class="col-4">
               <ul class="column-2">
                 <li>Humidity: <span id="humidity"></span>%</li>
                 <li>Wind💨: <span id="wind-speed"></span>m/sec</li>
@@ -74,52 +77,7 @@
               </ul>
             </div>
           </div>
-          <button type="button" class="btn btn-primary day">
-            5 Day Forcast
-          </button>
-          <button type="button" class="btn btn-secondary hour">12 Hours</button>
-          <div class="day-forecast" id="day-forecast">
-            <div class="row">
-              <div class="col-2">
-                <div class="day-forecast-date">1</div>
-                <img src="" alt="" />
-                <div class="day-forecast-temp">
-                  <div class="day-forecast-temp-max"></div>
-                  <div class="day-forecast-temp-min"></div>
-                </div>
-              </div>
-              <div class="col-2">
-                <div class="day-forecast-date">2</div>
-                <img src="" alt="" />
-                <div class="day-forecast-temp">
-                  <div class="day-forecast-temp-max"></div>
-                  <div class="day-forecast-temp-min"></div>
-                </div>
-              </div>
-              <div class="col-2">
-                <div class="day-forecast-date">3</div>
-                <img src="" alt="" />
-                <div class="day-forecast-temp">
-                  <div class="day-forecast-temp-max"></div>
-                  <div class="day-forecast-temp-min"></div>
-                </div>
-              </div>
-              <div class="col-2">
-                <div class="day-forecast-date">4</div>
-                <img src="" alt="" />
-                <div class="day-forecast-temp">
-                  <div class="day-forecast-temp-max"></div>
-                  <div class="day-forecast-temp-min"></div>
-                </div>
-              </div>
-              <div class="col-2">
-                <div class="day-forecast-date">5</div>
-                <img src="" alt="" />
-                <div class="day-forecast-temp">
-                  <div class="day-forecast-temp-max"></div>
-                  <div class="day-forecast-temp-min"></div>
-                </div>
-              </div>
+         
             </div>
           </div>
         </div>
