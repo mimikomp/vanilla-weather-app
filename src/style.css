@@ -70,6 +70,7 @@
 .column-2 {
   list-style: none;
   padding: 0;
+  text-transform: capitalize;
 }
 
 .weather-app-wrapper {

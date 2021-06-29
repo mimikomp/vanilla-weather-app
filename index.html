@@ -10,6 +10,7 @@
       integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x"
       crossorigin="anonymous"
     />
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <link rel="stylesheet" href="src/style.css" />
     <title>Weather App Week 7</title>
   </head>
@@ -61,19 +62,18 @@
           <div class="row">
             <div class="col-3">
               <ul class="column-1">
-                <li id="condition">Partly</li>
+                <li id="condition"></li>
                 <li>Feels like <span id="feels-like"></span>°</li>
                 <li>
-                  Day <span id="high-temp"></span>° | Night
-                  <span id="low-temp"></span>°
+                  High <span id="max-temp"></span>° | Low
+                  <span id="min-temp"></span>°
                 </li>
               </ul>
             </div>
             <div class="col-4">
               <ul class="column-2">
                 <li>Humidity: <span id="humidity"></span>%</li>
-                <li>Wind💨: <span id="wind-speed"></span>m/sec</li>
-                <li>Sunset🌅: <span id="sunset"></span></li>
+                <li>Wind: <span id="wind-speed"></span> MPH</li>
               </ul>
             </div>
           </div>
