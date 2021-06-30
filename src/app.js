@@ -27,7 +27,6 @@ function formatDate(timestamp) {
 }
 
 function displayTemperature(response) {
-  console.log(response.data);
   let temperatureElement = document.querySelector("#current-temp");
   let cityElement = document.querySelector("#location-city");
   let conditionElement = document.querySelector("#condition");
@@ -51,5 +50,4 @@ function displayTemperature(response) {
 let apiKey = "af769be7365d5beaa284c2fd49ab6ea1";
 let units = "imperial";
 let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=Milwaukee&units=${units}&appid=${apiKey}`;
-console.log(apiUrl);
 axios.get(apiUrl).then(displayTemperature);
