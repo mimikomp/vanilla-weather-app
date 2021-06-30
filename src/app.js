@@ -36,6 +36,8 @@ function displayTemperature(response) {
   let minTempElement = document.querySelector("#min-temp");
   let maxTempElement = document.querySelector("#max-temp");
   let dateElement = document.querySelector("#date-time");
+  let iconElement = document.querySelector("#icon");
+
   temperatureElement.innerHTML = Math.round(response.data.main.temp);
   cityElement.innerHTML = response.data.name;
   conditionElement.innerHTML = response.data.weather[0].description;
@@ -45,6 +47,10 @@ function displayTemperature(response) {
   minTempElement.innerHTML = Math.round(response.data.main.temp_min);
   maxTempElement.innerHTML = Math.round(response.data.main.temp_max);
   dateElement.innerHTML = formatDate(response.data.dt * 1000);
+  iconElement.setAttribute(
+    "src",
+    `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+  );
 }
 
 let apiKey = "af769be7365d5beaa284c2fd49ab6ea1";
