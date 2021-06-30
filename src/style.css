@@ -16,22 +16,6 @@
   position: relative;
   top: -16px;
 }
-.fahrenheit-button,
-.celsius-button {
-  font-size: 12px;
-  border-radius: 10px;
-  color: #666767;
-  padding: 1px 5px;
-  vertical-align: top;
-  position: relative;
-  top: 17px;
-}
-.fahrenheit-button:active,
-.celsius-button:active {
-  font-weight: bold;
-  background-color: royalblue;
-  color: #eaeaea;
-}
 
 .main-icon {
   height: 90px;
@@ -59,4 +43,20 @@
   border-radius: 7px;
   background-color: #f2f2f2;
   box-shadow: 1px 1px 8px 8px #eaeaea;
+}
+
+.weather-temperature .units {
+  position: relative;
+  font-size: 16px;
+  top: -60px;
+}
+
+.weather-temperature .active {
+  color: black;
+  font-weight: bolder;
+  cursor: default;
+}
+
+a {
+  text-decoration: none;
 }
