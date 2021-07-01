@@ -41,7 +41,7 @@
   padding: 20px;
   border: 1px solid gainsboro;
   border-radius: 7px;
-  background-color: #f2f2f2;
+  background-color: lightslategray;
   box-shadow: 1px 1px 8px 8px #eaeaea;
 }
 
@@ -59,4 +59,23 @@
 
 a {
   text-decoration: none;
+}
+
+.daily-forecast {
+  margin-top: 20px;
+  text-align: center;
+  color: black;
+}
+
+.daily-forecast-date {
+  font-size: 16px;
+  opacity: 0.6;
+}
+
+.daily-forecast-temperature {
+  font-size: 13px;
+}
+
+.daily-forecast-temperature-min {
+  opacity: 0.5;
 }
