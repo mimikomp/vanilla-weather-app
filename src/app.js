@@ -28,10 +28,16 @@ function formatDate(timestamp) {
 
 function displayDailyForecast() {
   let dailyForecastElement = document.querySelector("#daily-forecast");
-  dailyForecastElement.innerHTML = `
-    <div class="row">
+
+  let days = ["Thursday", "Friday", "Saturday"];
+
+  let dailyForecastHTML = `<div class="row">`;
+  days.forEach(function (day) {
+    dailyForecastHTML =
+      dailyForecastHTML +
+      `
       <div class="col-2">
-        <div class="daily-forecast-date">Day 1</div>
+        <div class="daily-forecast-date">${day}</div>
         <img
           src="https://openweathermap.org/img/wn/03d@2x.png"
           alt="icon1"
@@ -42,8 +48,11 @@ function displayDailyForecast() {
           <span class="daily-forecast-temperature-min"> 14° </span>
         </div>
       </div>
-    </div>
   `;
+  });
+
+  dailyForecastHTML = dailyForecastHTML + `</div>`;
+  dailyForecastElement.innerHTML = dailyForecastHTML;
 }
 
 function displayTemperature(response) {
