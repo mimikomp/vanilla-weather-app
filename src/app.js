@@ -47,6 +47,24 @@ function formatDate(timestamp) {
   return fullDate.toUpperCase();
 }
 
+function formatSunsetTime(timestamp) {
+  let time = new Date(timestamp);
+  let hours = time.getHours();
+  let minutes = time.getMinutes();
+  let amOrPm = "AM";
+  if (hours >= 12) {
+    amOrPm = "PM";
+    hours = hours - 12;
+  }
+  if (hours === 0) {
+    hours = "12";
+  }
+  if (minutes < 10) {
+    minutes = `0${minutes}`;
+  }
+  return `${hours}:${minutes}${amOrPm}`;
+}
+
 function formatForecastDate(timestamp) {
   let date = new Date(timestamp * 1000);
   let day = date.getDay();
@@ -98,7 +116,6 @@ function getDailyForecast(coordinates) {
   let units = "imperial";
   let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=${units}`;
   axios.get(apiUrl).then(displayDailyForecast);
-  console.log(apiUrl);
 }
 
 function displayTemperature(response) {
@@ -113,14 +130,19 @@ function displayTemperature(response) {
   let timeElement = document.querySelector("#update-time");
   let dateElement = document.querySelector("#date");
   let iconElement = document.querySelector("#icon");
+  let sunsetElement = document.querySelector("#sunset-time");
+  let timezoneElement = document.querySelector("#timezone-offset");
 
   fahrenheitTemperature = response.data.main.temp;
   fahrenheitMin = response.data.main.temp_min;
   fahrenheitMax = response.data.main.temp_max;
   fahrenheitFeelsLike = response.data.main.feels_like;
+  let sunsetTime = response.data.sys.sunset;
+  let timezoneTime = response.data.timezone;
 
   let country = response.data.sys.country;
   let city = response.data.name;
+  let formatTimezone = "UTC: " + timezoneTime / 3600;
 
   temperatureElement.innerHTML = Math.round(response.data.main.temp);
   locationElement.innerHTML = `${city}, ${country}`;
@@ -132,6 +154,10 @@ function displayTemperature(response) {
   maxTempElement.innerHTML = Math.round(response.data.main.temp_max);
   timeElement.innerHTML = formatTime(response.data.dt * 1000);
   dateElement.innerHTML = formatDate(response.data.dt * 1000);
+  sunsetElement.innerHTML = formatSunsetTime(
+    (sunsetTime - timezoneTime) * 1000
+  );
+  timezoneElement.innerHTML = formatTimezone;
 
   iconElement.setAttribute(
     "src",
@@ -158,7 +184,6 @@ function getCelsius(temp) {
   return Math.round(((temp - 32) * 5) / 9);
 }
 //////Min & Max Conversion F to C/////////
-function minMaxCelsius(unit, minTemp, maxTemp) {}
 function displayCelsiusTemp(event) {
   event.preventDefault();
   let temperatureElement = document.querySelector("#current-temp");
