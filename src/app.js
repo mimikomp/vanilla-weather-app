@@ -1,7 +1,7 @@
-function formatDate(timestamp) {
-  let date = new Date(timestamp);
-  let hours = date.getHours();
-  let minutes = date.getMinutes();
+function formatTime(timestamp) {
+  let time = new Date(timestamp);
+  let hours = time.getHours();
+  let minutes = time.getMinutes();
   let amOrPm = "AM";
   if (hours >= 12) {
     amOrPm = "PM";
@@ -13,6 +13,26 @@ function formatDate(timestamp) {
   if (minutes < 10) {
     minutes = `0${minutes}`;
   }
+  return `${hours}:${minutes}${amOrPm}`;
+}
+function formatDate(timestamp) {
+  let formattedDate = new Date(timestamp);
+  let date = formattedDate.getDate();
+  let months = [
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December",
+  ];
+  let month = months[formattedDate.getMonth()];
   let days = [
     "Sunday",
     "Monday",
@@ -22,8 +42,8 @@ function formatDate(timestamp) {
     "Friday",
     "Saturday",
   ];
-  let day = days[date.getDay()];
-  return `${day} ${hours}:${minutes}${amOrPm}`;
+  let day = days[formattedDate.getDay()];
+  return `${day}, ${month} ${date}`;
 }
 
 function formatForecastDate(timestamp) {
@@ -88,7 +108,8 @@ function displayTemperature(response) {
   let feelsLikeElement = document.querySelector("#feels-like");
   let minTempElement = document.querySelector("#min-temp");
   let maxTempElement = document.querySelector("#max-temp");
-  let dateElement = document.querySelector("#date-time");
+  let timeElement = document.querySelector("#update-time");
+  let dateElement = document.querySelector("#date");
   let iconElement = document.querySelector("#icon");
 
   fahrenheitTemperature = response.data.main.temp;
@@ -101,7 +122,9 @@ function displayTemperature(response) {
   feelsLikeElement.innerHTML = Math.round(response.data.main.feels_like);
   minTempElement.innerHTML = Math.round(response.data.main.temp_min);
   maxTempElement.innerHTML = Math.round(response.data.main.temp_max);
+  timeElement.innerHTML = formatTime(response.data.dt * 1000);
   dateElement.innerHTML = formatDate(response.data.dt * 1000);
+
   iconElement.setAttribute(
     "src",
     `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`

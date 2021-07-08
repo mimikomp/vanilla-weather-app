@@ -7,10 +7,16 @@
   color: #3d3e3e;
   margin-bottom: -12px;
 }
-.date-time {
+.date {
+  margin-bottom: 0px;
+}
+.update-time,
+h3 {
   color: #666767;
   margin-bottom: 10px;
+  font-size: 16px;
 }
+
 .current-temp {
   font-size: 80px;
   position: relative;
