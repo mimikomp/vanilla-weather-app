@@ -47,10 +47,14 @@ h3 {
   padding: 20px;
   border: 1px solid gainsboro;
   border-radius: 7px;
-  background-color: lightslategray;
-  box-shadow: 1px 1px 8px 8px #eaeaea;
+  background: rgb(153, 153, 153);
+  background: radial-gradient(
+    circle,
+    rgba(153, 153, 153, 1) 0%,
+    rgba(208, 206, 192, 0.9780287114845938) 49%,
+    rgba(136, 136, 136, 1) 100%
+  );
 }
-
 .weather-temperature .units {
   position: relative;
   font-size: 16px;
@@ -84,4 +88,49 @@ a {
 
 .daily-forecast-temperature-min {
   opacity: 0.5;
+}
+
+.search-button {
+  color: #999999 !important;
+  text-transform: uppercase;
+  background: #ffffff;
+  padding: 5px;
+  border-left: #999999;
+  border: 2px solid white !important;
+  border-radius: 6px;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  transition: all 0.3s ease 0s;
+  height: 39px;
+  width: 90px;
+}
+.search-button:hover {
+  color: #999999 !important;
+  border: 2px solid #999999 !important;
+  transition: all 0.3s ease 0s;
+}
+
+.form-control {
+  width: 425px;
+  border-bottom-right-radius: 0;
+  border-top-right-radius: 0;
+}
+.form-control:focus {
+  box-shadow: none !important;
+  border: slategrey !important;
+}
+
+form {
+  display: flex;
+  flex-direction: row;
+  margin-left: 15px;
+}
+.btn-outline-light {
+  width: 60px;
+  color: white;
+  margin-bottom: 0 !important;
+  margin-left: 10px;
+}
+.btn-outline-light:hover {
+  color: #999999 !important;
 }

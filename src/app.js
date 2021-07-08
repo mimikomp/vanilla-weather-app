@@ -168,6 +168,24 @@ function displayFahrenheitTemp(event) {
 
 let fahrenheitTemperature = null;
 
+function showPosition(position) {
+  let currentLatitude = position.coords.latitude;
+  let currentLongitude = position.coords.longitude;
+  let units = "imperial";
+  let apiKey = "af769be7365d5beaa284c2fd49ab6ea1";
+  let apiEndPoint = "https://api.openweathermap.org/data/2.5/weather";
+  let apiUrl = `${apiEndPoint}?lat=${currentLatitude}&lon=${currentLongitude}&appid=${apiKey}&units=${units}`;
+  axios.get(apiUrl).then(displayTemperature);
+}
+
+function getCurrentLocation(event) {
+  event.preventDefault();
+  navigator.geolocation.getCurrentPosition(showPosition);
+}
+
+let currentButton = document.querySelector("#current-location");
+currentButton.addEventListener("click", getCurrentLocation);
+
 let form = document.querySelector("#search-form");
 form.addEventListener("submit", handleSubmit);
 
