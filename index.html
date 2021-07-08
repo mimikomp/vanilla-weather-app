@@ -16,6 +16,10 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
     />
+<!--GOOGLE FONTS--> 
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Amatic+SC&family=Bangers&family=Changa:wght@800&family=Courier+Prime:ital@1&family=Faster+One&family=Fira+Sans:wght@900&family=Gotu&family=Kanit&family=Lobster&family=Major+Mono+Display&family=Montserrat+Subrayada:wght@400;700&family=Open+Sans+Condensed:ital,wght@1,300&family=Sarpanch:wght@600&family=Shrikhand&family=Syncopate:wght@400;700&display=swap');
+</style>
 <!--AXIOS-->  
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 <!--STYLE-->  
@@ -55,13 +59,13 @@
               <span class="update-time" id="update-time"></span>
             </h3>
           </div>
-          <div class="row">
+          <div class="row icon-temp">
             <div class="clearfix weather-temperature">
               <img src="" alt="icon" id="icon" class="main-icon float-left" />
               <strong class="current-temp" id="current-temp"></strong>
               <span class="units" id="units"
-                ><a href="#" id="fahrenheit-link" class="active">°F</a> |
-                <a href="#" id="celsius-link">°C</a>
+                ><a href="#" id="fahrenheit-link" class="active fahrenheit-link">°F</a> |
+                <a href="#" id="celsius-link" class="celsius-link">°C</a>
               </span>
             </div>
           </div>
@@ -84,7 +88,7 @@
             </div>
           </div>
 <!--DAILY FORECAST-->         
-
+<hr>
           <div class="daily-forecast" id="daily-forecast"></div>
         </div>
       </div>

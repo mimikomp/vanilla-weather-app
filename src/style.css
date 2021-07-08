@@ -4,29 +4,43 @@
 
 .location {
   font-size: 55px;
-  color: #3d3e3e;
-  margin-bottom: -8px;
+  color: #343434;
+  margin-bottom: -10px;
+  margin-left: -3px;
+  font-family: "Shrikhand", cursive;
 }
 .date {
   margin-bottom: 0px;
+  margin-left: -5px;
+  font-family: "Kanit", sans-serif;
+  font-size: 30px;
+  color: #494747;
 }
 .update-time,
 h3 {
   color: #666767;
   margin-bottom: 10px;
-  font-size: 16px;
+  font-size: 22px;
+  font-family: "Open Sans Condensed", sans-serif;
 }
 
 .current-temp {
   font-size: 80px;
   position: relative;
-  top: -16px;
+  top: 29px;
+}
+
+.icon-temp {
+  top: -80px;
+  margin-top: -30px;
+  margin-left: -35px;
 }
 
 .main-icon {
-  height: 90px;
-  vertical-align: top;
-  margin-right: 13px;
+  height: 150px;
+  width: 150px;
+  margin-right: -15px;
+  object-fit: cover;
 }
 
 .column-1,
@@ -58,25 +72,34 @@ h3 {
 .weather-temperature .units {
   position: relative;
   font-size: 16px;
-  top: -55px;
+  top: -5px;
   font-size: 25px;
+  margin-left: 4px;
 }
 
-.weather-temperature .active {
-  color: #ec6f4c;
-  font-weight: bolder;
-  cursor: none;
-}
-
-a {
+.fahrenheit-link,
+.celsius-link {
   text-decoration: none;
   color: black;
   cursor: pointer;
-  font-size: 25px;
+  font-size: 20px;
+  padding: 4px;
+  border: 2px solid black;
+  border-radius: 120px;
 }
-a:hover {
+.fahrenheit-link:hover,
+.celsius-link:hover {
   color: black;
   text-decoration: none;
+  font-weight: bolder;
+}
+
+.weather-temperature .active {
+  color: #f2f2f1;
+  font-weight: bolder;
+  cursor: none;
+  background-color: #ec6f4c;
+  border: 2px solid #f2f2f1;
 }
 
 .daily-forecast {
@@ -142,4 +165,12 @@ form {
 }
 .btn-outline-light:hover {
   color: #999999 !important;
+}
+hr {
+  display: block;
+}
+
+.search-form {
+  margin-left: 5px;
+  margin-right: 5px;
 }
