@@ -101,7 +101,7 @@ function getDailyForecast(coordinates) {
 
 function displayTemperature(response) {
   let temperatureElement = document.querySelector("#current-temp");
-  let cityElement = document.querySelector("#location-city");
+  let locationElement = document.querySelector("#location-city");
   let conditionElement = document.querySelector("#condition");
   let humidityElement = document.querySelector("#humidity");
   let windElement = document.querySelector("#wind-speed");
@@ -114,8 +114,11 @@ function displayTemperature(response) {
 
   fahrenheitTemperature = response.data.main.temp;
 
+  let country = response.data.sys.country;
+  let city = response.data.name;
+
   temperatureElement.innerHTML = Math.round(response.data.main.temp);
-  cityElement.innerHTML = response.data.name;
+  locationElement.innerHTML = `${city}, ${country}`;
   conditionElement.innerHTML = response.data.weather[0].description;
   humidityElement.innerHTML = response.data.main.humidity;
   windElement.innerHTML = Math.round(response.data.wind.speed);
