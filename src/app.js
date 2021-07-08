@@ -76,10 +76,10 @@ function displayDailyForecast(response) {
           width="60"
          />
         <div class="daily-forecast-temperature">
-          <span class="daily-forecast-temperature-max">${Math.round(
+          <span class="daily-forecast-temperature-max id="temperature-element">${Math.round(
             forecastDay.temp.max
           )}° </span> |
-          <span class="daily-forecast-temperature-min">${Math.round(
+          <span class="daily-forecast-temperature-min" id="temperature-element">${Math.round(
             forecastDay.temp.min
           )}° </span>
         </div>
@@ -113,6 +113,9 @@ function displayTemperature(response) {
   let iconElement = document.querySelector("#icon");
 
   fahrenheitTemperature = response.data.main.temp;
+  fahrenheitMin = response.data.main.temp_min;
+  fahrenheitMax = response.data.main.temp_max;
+  fahrenheitFeelsLike = response.data.main.feels_like;
 
   let country = response.data.sys.country;
   let city = response.data.name;
@@ -148,22 +151,47 @@ function handleSubmit(event) {
   let cityInputElement = document.querySelector("#city-input");
   search(cityInputElement.value);
 }
-
+///////Convert Fahrenheit to Celsius//////////
+function getCelsius(temp) {
+  return Math.round(((temp - 32) * 5) / 9);
+}
+//////Min & Max Conversion F to C/////////
+function minMaxCelsius(unit, minTemp, maxTemp) {}
 function displayCelsiusTemp(event) {
   event.preventDefault();
   let temperatureElement = document.querySelector("#current-temp");
-  fahrenheitLink.classList.remove("active");
-  celsiusLink.classList.add("active");
+  let minTempElement = document.querySelector("#min-temp");
+  let maxTempElement = document.querySelector("#max-temp");
+  let feelsLikeElement = document.querySelector("#feels-like");
+
   let celsiusTemperature = ((fahrenheitTemperature - 32) * 5) / 9;
   temperatureElement.innerHTML = Math.round(celsiusTemperature);
+
+  let celsiusMin = ((fahrenheitMin - 32) * 5) / 9;
+  minTempElement.innerHTML = Math.round(celsiusMin);
+
+  let celsiusMax = ((fahrenheitMax - 32) * 5) / 9;
+  maxTempElement.innerHTML = Math.round(celsiusMax);
+
+  let celsiusFeelsLike = ((fahrenheitFeelsLike - 32) * 5) / 9;
+  feelsLikeElement.innerHTML = Math.round(celsiusFeelsLike);
+
+  fahrenheitLink.classList.remove("active");
+  celsiusLink.classList.add("active");
 }
 
 function displayFahrenheitTemp(event) {
   event.preventDefault();
+  document.querySelector("#current-temp").innerHTML = Math.round(
+    fahrenheitTemperature
+  );
+  document.querySelector("#min-temp").innerHTML = Math.round(fahrenheitMin);
+  document.querySelector("#max-temp").innerHTML = Math.round(fahrenheitMax);
+  document.querySelector("#feels-like").innerHTML =
+    Math.round(fahrenheitFeelsLike);
+
   fahrenheitLink.classList.add("active");
   celsiusLink.classList.remove("active");
-  let temperatureElement = document.querySelector("#current-temp");
-  temperatureElement.innerHTML = Math.round(fahrenheitTemperature);
 }
 
 let fahrenheitTemperature = null;
